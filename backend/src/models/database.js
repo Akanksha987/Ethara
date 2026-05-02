@@ -15,15 +15,24 @@ module.exports = {
      * Singleton-like Database Object that connects to the mongodb database
      */
     async getDbo() {
-        if (!client) {
+        if (!client || !db) {
             client = new MongoClient(connectionString, {
                 useUnifiedTopology: true,
                 useNewUrlParser: true,
                 tls: true,
                 serverSelectionTimeoutMS: 10000
             });
-            await client.connect();
-            db = client.db();
+            try {
+                await client.connect();
+                db = client.db();
+                if (!db) {
+                    throw new Error('Unable to resolve database from DB_URL');
+                }
+            } catch (error) {
+                client = null;
+                db = null;
+                throw error;
+            }
         }
         return db;
     }
