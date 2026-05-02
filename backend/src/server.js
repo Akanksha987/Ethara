@@ -2,6 +2,8 @@
 // Register module/require aliases
 require('module-alias/register');
 
+// Load local env files in development
+require('dotenv').config();
 
 // Patches
 const {inject, errorHandler} = require('express-custom-error');
@@ -21,11 +23,10 @@ const logger = require('@util/logger');
 
 require('mandatoryenv').load([
     'DB_URL',
-    'PORT',
     'SECRET'
 ]);
 
-const { PORT } = process.env;
+const PORT = process.env.PORT || 5000;
 
 
 // Instantiate an Express Application

@@ -16,8 +16,7 @@
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "cookie-parser": "^1.4.4",
-        "cors": "^2.8.5",
-        "express-custom-error": "^1.8.4",
+        "cors": "^2.8.5",        "dotenv": "^16.4.3",        "express-custom-error": "^1.8.4",
         "express": "^4.17.1",
         "has-keys": "^0.1.0",
         "helmet": "^3.21.2",
@@ -25,7 +24,7 @@
         "jsonwebtoken": "^9.0.0",
         "mandatoryenv": "^1.1.1",
         "module-alias": "^2.2.2",
-        "mongodb": "^3.3.3",
+        "mongodb": "^5.7.0",
         "morgan": "^1.9.1",
         "rotating-file-stream": "^1.4.6"
     },
