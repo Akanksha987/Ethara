@@ -38,7 +38,7 @@ module.exports = {
         const result = await dbo.collection(collectionName).findOneAndUpdate(
             { _id: toObjectId(id) },
             { $set: updates },
-            { returnOriginal: false }
+            { returnDocument: 'after' }
         );
         return result.value;
     },
@@ -47,7 +47,7 @@ module.exports = {
         const result = await dbo.collection(collectionName).findOneAndUpdate(
             { _id: toObjectId(projectId) },
             { $addToSet: { members: memberId } },
-            { returnOriginal: false }
+            { returnDocument: 'after' }
         );
         return result.value;
     },
@@ -56,7 +56,7 @@ module.exports = {
         const result = await dbo.collection(collectionName).findOneAndUpdate(
             { _id: toObjectId(projectId) },
             { $pull: { members: memberId } },
-            { returnOriginal: false }
+            { returnDocument: 'after' }
         );
         return result.value;
     }

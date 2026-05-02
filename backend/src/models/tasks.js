@@ -40,7 +40,7 @@ module.exports = {
         const result = await dbo.collection(collectionName).findOneAndUpdate(
             { _id: toObjectId(id) },
             { $set: updates },
-            { returnOriginal: false }
+            { returnDocument: 'after' }
         );
         return result.value;
     }
